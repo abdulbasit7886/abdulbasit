@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+*::-webkit-scrollbar{
+    width: 10px;
+    padding: 0 2.5px;
+}
+*::-webkit-scrollbar-track{
+    background: #9400FF 60% ;
+}
+*::-webkit-scrollbar-thumb{
+    background: linear-gradient(
+        to bottom , 
+        transparent  50%,
+        var(--text) 60%
+    );
+    box-shadow: 10px 10px 34px 0 rgba(0 , 0, 0 , 0.15);
+    width: 10px;
+}
+*::selection{
+    color: var(--text);
+    background: #9400FF;
+}
+ion-icon{
+    cursor: pointer;
+    color: #333;
+}
+body{
+    background: var(--body);
+    --body:#efefef;
+    --text:#333;
+    --toggle:#dbdbdb;
+    --nav:#efefef;
+    --icon-hover:#d3d3d3;
+    --header-h1:#1d1d1d;
+    --line:#d3d3d3;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+body.dark{
+    --body:#121211;
+    --text:#efefef;
+    --toggle:#121211;
+    --nav:#1c1c1c;
+    --icon-hover:#333333;
+    --header-h1:#efefef;
+    --line:#383838;
+}
+.nav{
+    height: 60px;
+    width: 100vw;
+    background: var(--nav);
+    box-shadow: 10px 10px 34px 0 rgba(0 , 0, 0 , 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    position: fixed;
+}
+.right-side{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    height: 45px;
+    width: 45px;
+}
+
+.left-side{
+    display: flex;
+    align-items: center;
+}
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin-right: 20px;
+}
+.links li{
+    margin: 0 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 7px;
+}
+.links li a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--text);
+}
+.links li::after{
+    position: absolute;
+    content: '';
+    height: 3px;
+    width: 10px;
+    background: #9400FF;
+    bottom: -5px;
+    border-radius: 50px;
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+.links li:hover:after{
+    transform: translateX(0);
+    opacity: 1;
+}
+.links li:nth-of-type(4){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 0px;
+}
+.links li:nth-of-type(4) p{
+    display: none;
+}
+.menu{
+    margin-right: 0px;
+}
+.darkBtn{
+    margin-right: 0px;
+}
+.darkBtn, .menu , .searchIcon , .back{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 45px;
+    background: var(--body);
+    box-shadow: 5px 5px 34px 0 rgba(0 , 0, 0 , 0.15);
+    margin-right: 20px;
+    border-radius: 7px;
+}
+.menu ion-icon , .darkBtn ion-icon,
+.search-bar ion-icon, .search-bar-2 ion-icon,
+.searchIcon ion-icon , .back ion-icon {
+    font-size: 24px;
+    color: var(--text);
+}
+.menu ion-icon:nth-child(2) , .darkBtn ion-icon:nth-child(2){
+    display: none;
+}
+.search-bar-2{
+    display: none;
+}
+.search-bar{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 350px;
+    background: var(--body);
+    box-shadow: 5px 5px 34px 0 rgba(0 , 0, 0 , 0.15);
+    margin-right: 20px;
+    padding: 5px 10px;
+    border-radius: 7px;
+}
+.close-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-bar input,
+.search-bar-2 input{
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    background: var(--body);
+    color: var(--text);
+}
+.close , .menu{
+    display:none;
+}
+.menu.active ion-icon:nth-of-type(2){
+    display: inline-flex;
+}
+.menu.active ion-icon:nth-of-type(1){
+    display: none;
+}
+.searchIcon{
+    margin-right: 10px;
+    display: none;
+}
+@media all and (max-width:940px) {
+
+    .links{
+        display: none;
+    }
+    .menu{
+        display: inline-flex;
+        margin-right: 0px;
+        margin-left: 10px;
+    }
+    .links.active{
+        display: block;
+        position: absolute;
+        top: 100%;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: var(--nav);
+        right: 0;
+        margin-right: 0px;
+        height: auto;
+        box-shadow: 5px 0 34px 0 rgba(0 , 0, 0 , 0.15);
+    }
+    .links li:nth-of-type(4) p{
+        display: inline-flex;
+    }
+    .links.active li:nth-of-type(1){
+        margin-top: 30px;
+    }
+    .links.active li{
+        margin-bottom: 30px;
+        top: 0;
+    }
+}
+
+@media all and (max-width:690px){
+    .searchIcon{
+        display: inline-flex;
+    }
+    .search-bar{
+        display: none;
+    }
+    .search-bar-2{
+        display: none;
+    }
+    .search-bar-2.active{
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        background: var(--body);
+        box-shadow: 5px 5px 34px 0 rgba(0 , 0, 0 , 0.15);
+        padding: 5px 10px;
+        position: absolute;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+    }
+    .close-2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .search-bar-2 input{
+        width: 100%;
+        height: 100%;
+        margin-left: 10px;
+        border: none;
+        outline: none;
+        background: var(--body);
+        color: var(--text);
+    }
+}
+
+/* main */
+main{
+    padding-top:100px;
+    padding-left: 30px;
+}
+.main-heading{
+    margin-bottom: 30px;
+}
+.main-heading h2{
+    color: #9400FF;
+    font-size: 34px;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+}
+.card-parent{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.card{
+    padding: 10px 20px;
+    margin :20px 30px;
+    width: 93%;
+    height: auto;
+    background: var(--nav);
+    box-shadow: 10px 10px 34px 0 rgba(0 , 0, 0 , 0.15);
+    border-radius: 16px;
+    margin-bottom: 30px;
+}
+.card .card-title{
+    margin-top: 20px;
+    color: var(--text);
+}
+.card-title h1{
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+.card-title strong{
+    color: #9400FF;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    text-decoration: underline;
+    margin-left: 5px;
+}
+.card-text{
+    margin-top: 20px;
+    color: var(--text);
+    letter-spacing: .5px;
+}
+.card-btn {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.card-btn a{
+    padding: 12px 24px;
+    font-size: 16px;
+    background: #9400FF;
+    color: #efefef;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+/* card-popup */
+
+
+.card-popup{
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    background: var(--nav);
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: scroll;
+    display: none;
+}
+.popup-header{
+    background: var(--nav);
+    height:100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    box-shadow: 5px 5px 34px 0 rgba(0 , 0, 0,0.15);
+}
+.popup-header .card-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup-header .card-title h2,
+.card-parent .card-title h2{
+    color: var(--text);
+    font-size: 32px;
+    text-transform: capitalize;
+}
+.popup-close{
+    margin: 20px 30px;
+    height: 45px;
+    width: 45px;
+    background: var(--body);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    box-shadow: 10px 10px 34px 0 rgba(0 , 0, 0 , 0.15);
+    border-radius: 7px;
+}
+.popup-close ion-icon{
+    float: right;
+    color: #9400FF;
+    font-size: 30px;
+    animation: rotate 3s linear infinite;
+}
+@keyframes rotate  {
+    to{
+        rotate: 360deg;
+    }
+}
+
+.popup-main{
+    padding: 100px 30px ;
+}
+
+.popup-header .card-title{
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+.intro {
+    margin-top: 30px;
+}
+.intro p{
+    color: var(--text);
+    letter-spacing: 1px;
+}
+.popup-detail{
+    margin-top: 30px;
+}
+.popup-detail h4{
+    color: #9400FF;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+.detail-pro{
+    margin-top: 20px;
+}
+
+.detail-pro li strong{
+    color: #9400FF;
+    font-size: 24px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+.detail-pro li {
+    color: var(--text);
+    list-style:url(../list\ style.png) ;
+    margin-top: 40px;
+}
+.detail-pro li p
+, .note p{
+    margin-top: 20px;
+    color: var(--text);
+}
+
+.note{
+    margin-top: 60px;
+    padding-bottom: 100px;
+}
+.note h4{
+    font-size: 30px;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+}
+.card-popup.active{
+    display: inline-flex;
+}
+
+
+/* other blog */
+.other-blog{
+    padding: 0px 30px;
+}
+.other-blog-title{
+    margin-top: -30px;
+    margin-bottom: 10px;
+}
+.other-blog > .card{
+    width: 95%;
+}
+.other-blog-title h2{
+    color: #9400FF;
+    font-size: 34px;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+}
+main:nth-child(2){
+    margin-top: 0px;
+}
+@media all and (max-width:940px){
+    .card-parent{
+        margin-left:-10px;
+    }
+    .card{
+        margin: 20px 1.5%;
+    }
+    .card .card-title h2{
+        font-size: 20px;
+    }
+    .card-text p{
+        font-size: 13px;
+    }
+    .card .card-btn a{
+        padding: 12px 10px;
+        font-size: 12px;
+    }
+    /* popup */
+
+    .popup-header .card-title h2{
+        font-size: 16px;
+    }
+    .card-popup .popup-main .intro p{
+        font-size: 14px;
+    }
+    .popup-detail h4{
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+    .detail-pro li strong{
+        font-size: 16px;
+    }
+    .detail-pro li p{
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+    .note p{
+        font-size: 14px;
+    }
+
+}
+@media all and (max-width:768px){
+    .card{
+        margin-left: 1.5%;
+    }
+    .card .card-title h1{
+        font-size: 20px;
+    }
+    .card-text{
+        font-size: 16px;
+    }
+}

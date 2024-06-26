@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s ease-in-out;
+    scroll-behavior: smooth;
+}
+ion-icon{
+    cursor: pointer;
+    color: #333;
+}
+body{
+    background: var(--body);
+    --body:#efefef;
+    --text:#333;
+    --toggle:#dbdbdb;
+    --nav:#efefef;
+    --icon-hover:#d3d3d3;
+    transition: 0.3s ease-in-out;
+}
+body.dark{
+    --body:#121211;
+    --text:#efefef;
+    --toggle:#121211;
+    --nav:#1c1c1c;
+    --icon-hover:#333333;
+}
